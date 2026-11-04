@@ -400,3 +400,91 @@ code {
   list-style: none;
   font-size: 14px;
 }
+
+/* ── Copy prompt ───────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.copy-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--fg) 16%, transparent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 150ms, background-color 150ms, transform 120ms;
+}
+.copy-prompt:hover {
+  border-color: color-mix(in srgb, var(--fg) 34%, transparent);
+}
+.copy-prompt:active {
+  transform: scale(0.97);
+}
+.copy-prompt:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: 2px;
+}
+.copy-prompt[data-state="copied"] svg {
+  color: var(--mark);
+}
+.card-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 14px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 18px 0 8px;
+  font-size: 14px;
+}
+.prompt {
+  margin: 14px 0;
+}
+.prompt summary {
+  cursor: pointer;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.prompt pre {
+  white-space: pre-wrap;
+}
+@media (max-width: 560px) {
+  .card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.download {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 14px;
+  text-decoration: none;
+}
+.download:hover {
+  opacity: 0.88;
+}
+.download:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: 2px;
+}

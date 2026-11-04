@@ -5,6 +5,11 @@ import { DeskFigure } from "@/components/figures/desk/figure";
 import { BenchFigure } from "@/components/figures/bench/figure";
 import { WatchFigure } from "@/components/figures/watch/figure";
 import { GpuFigure } from "@/components/figures/gpu/figure";
+import { SorterFigure } from "@/components/figures/sorter/figure";
+import { KeypadFigure } from "@/components/figures/keypad/figure";
+import { ScaleFigure } from "@/components/figures/scale/figure";
+import { SpindleFigure } from "@/components/figures/spindle/figure";
+import { ShuttleFigure } from "@/components/figures/shuttle/figure";
 
 /**
  * Every figure in the set, in one list: the gallery, the figure pages and
@@ -90,6 +95,61 @@ export const FIGURES: Figure[] = [
     component: "GpuFigure",
     folder: "gpu",
     render: () => <GpuFigure />,
+  },
+  {
+    slug: "sorter",
+    name: "Task sorter",
+    line: "A task list's three tabs, as trays a shuttle fills.",
+    mechanism:
+      "A shuttle runs on two rails from a magazine of blank tiles to three trays: Upcoming, Overdue and Done. Each task rides the shuttle to its tray and hops onto the stack, so the height of each stack is the count on that tab. The tray walls carry a scale of ticks, and the readout counts the tiles themselves.",
+    tryIt: ["Click or press Enter to send the next task", "Hover to pause it", "Take it apart: the bench, the rails with the shuttle on them, and the trays"],
+    component: "SorterFigure",
+    folder: "sorter",
+    render: () => <SorterFigure />,
+  },
+  {
+    slug: "keypad",
+    name: "Command keypad",
+    line: "A command palette, as a key pad and a panel on posts.",
+    mechanism:
+      "A ten-key pad with a results panel standing behind it on two posts. ⌘ and K go down and the panel rises on a spring; ↓ walks the highlight down four results; ↵ opens one and the panel sinks back. Each key travels until it meets the housing, and the posts are the only parts rebuilt as they extend.",
+    tryIt: ["Click or press Enter to run the search again", "Hover to pause it", "Take it apart: bench, stand, housing, keys and the results panel"],
+    component: "KeypadFigure",
+    folder: "keypad",
+    render: () => <KeypadFigure />,
+  },
+  {
+    slug: "scale",
+    name: "Progress scale",
+    line: "Project progress, weighed rather than typed in.",
+    mechanism:
+      "A platform scale with a backstop post. Each finished task is a plate on the pan, a collar on the post marks the project's total, and a dial on a pedestal reads done ÷ total, one turn for the whole project. The pan sinks a little under the load, and the needle follows the plates rather than jumping.",
+    tryIt: ["Click or press Enter to weigh the next project", "Hover to pause it", "Take it apart: bench, load cell, pan and dial"],
+    component: "ScaleFigure",
+    folder: "scale",
+    render: () => <ScaleFigure />,
+  },
+  {
+    slug: "spindle",
+    name: "Activity spindle",
+    line: "An activity feed, as cards on a spindle.",
+    mechanism:
+      "A weighted base with a rod, and a desk clock beside it. Every change drops as a card down the rod onto the stack, falling from rest, so the stack's order is the order things happened, newest on top. The rod is drawn above the highest card only, since the cards hide it below, and the clock moves on with each card.",
+    tryIt: ["Click or press Enter to add the next card", "Hover to pause it", "Take it apart: bench, base, cards and clock"],
+    component: "SpindleFigure",
+    folder: "spindle",
+    render: () => <SpindleFigure />,
+  },
+  {
+    slug: "shuttle",
+    name: "Save and undo",
+    line: "An optimistic save, and its undo, on a rail.",
+    mechanism:
+      "A client cradle, a rail and a filing cabinet that stands for the database. The change shows on the client at once, rides the shuttle to the cabinet, and a drawer slides out to take it, its outside rebuilt as it opens. The cable runs while it travels. Undo presses the button on the cradle and the same trip runs backwards.",
+    tryIt: ["Click or press Enter to save again", "Hover to pause it", "Take it apart: the bench, the client, the rail with its shuttle, and the database"],
+    component: "ShuttleFigure",
+    folder: "shuttle",
+    render: () => <ShuttleFigure />,
   },
 ];
 

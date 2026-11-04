@@ -1,0 +1,18 @@
+.scale {
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.scale:focus-visible {
+  outline: 1px solid var(--anatomy-muted);
+  outline-offset: 6px;
+}
+
+.scale .iso-svg { overflow: visible; }
+
+@media (max-width: 640px) {
+  .scale { overflow: hidden; }
+  .iso-plate .scale .iso-svg { width: 112%; margin: -3% -6%; }
+}

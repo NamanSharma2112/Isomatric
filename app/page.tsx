@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { FIGURES } from "@/lib/figures";
+import { promptFor } from "@/lib/prompt";
+import { CopyPrompt } from "@/components/site/copy-prompt";
 
 export default function Home() {
   return (
@@ -7,8 +9,8 @@ export default function Home() {
       <section className="hero">
         <h1>Isometric figures for React.</h1>
         <p className="lede">
-          Six interactive machines, each one the explanation of an idea: a cam cut to an easing curve, an abacus of churned
-          customers, a watch that keeps your time. They are drawn from one small kit of real solids, painted back to front
+          Eleven interactive machines, each one the explanation of an idea: a cam cut to an easing curve, an abacus of churned
+          customers, a watch that keeps your time, a scale that weighs a project. They are drawn from one small kit of real solids, painted back to front
           with four-tone shading, and every one comes apart into a labelled teardown.
         </p>
         <ul className="facts">
@@ -32,9 +34,12 @@ export default function Home() {
                 <h3>{f.name}</h3>
                 <p>{f.line}</p>
               </div>
-              <Link className="open" href={`/figures/${f.slug}`} aria-label={`Open ${f.name}`}>
-                Open →
-              </Link>
+              <div className="card-actions">
+                <CopyPrompt text={promptFor(f)} />
+                <Link className="open" href={`/figures/${f.slug}`} aria-label={`Open ${f.name}`}>
+                  Open →
+                </Link>
+              </div>
             </div>
           </article>
         ))}

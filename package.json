@@ -2,7 +2,7 @@
   "name": "isomatric",
   "version": "0.1.0",
   "private": true,
-  "description": "Interactive isometric figures for React: a small kit of solids, painter's order and four-tone shading, and six machines built with it.",
+  "description": "Interactive isometric figures for React: a small kit of solids, painter's order and four-tone shading, and eleven machines built with it.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

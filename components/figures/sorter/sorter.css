@@ -1,0 +1,18 @@
+.sorter {
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.sorter:focus-visible {
+  outline: 1px solid var(--anatomy-muted);
+  outline-offset: 6px;
+}
+
+.sorter .iso-svg { overflow: visible; }
+
+@media (max-width: 640px) {
+  .sorter { overflow: hidden; }
+  .iso-plate .sorter .iso-svg { width: 112%; margin: -3% -6%; }
+}
