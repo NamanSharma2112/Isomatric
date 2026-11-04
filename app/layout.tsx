@@ -32,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <nav aria-label="Site">
             <Link href="/#figures">Figures</Link>
             <Link href="/kit">Kit</Link>
+            <Link href="/skill">Skill</Link>
             <a href="https://github.com/NamanSharma2112/isomatric">GitHub</a>
             <ThemeToggle />
           </nav>

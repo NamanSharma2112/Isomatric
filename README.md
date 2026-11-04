@@ -14,6 +14,11 @@ Each figure is a real, well-made machine whose working *is* the idea it explains
 | Workbench line | One piece, four stations: scribed, cut, pressed, then measured by a gauge | `components/figures/bench` |
 | Day-Date 40 | A watch with a fluted bezel, day and date windows and a Cyclops, keeping the visitor's time | `components/figures/watch` |
 | Three-fan graphics card | Board, GPU, memory, power stages, fin stack and fans; load drives a fan curve with a zero-rpm stop | `components/figures/gpu` |
+| Task sorter | A task list's three tabs as trays: a shuttle carries each task from a magazine and drops it on its tray's stack | `components/figures/sorter` |
+| Command keypad | A command palette: ⌘K raises a results panel on posts, ↓ walks the highlight, ↵ opens one | `components/figures/keypad` |
+| Progress scale | Project progress weighed: one plate per finished task, a collar at the total, a dial reading done ÷ total | `components/figures/scale` |
+| Activity spindle | An activity feed as cards dropping onto a spindle, newest on top, with a desk clock moving on | `components/figures/spindle` |
+| Save and undo | An optimistic save: the change rides a shuttle to a filing cabinet, and undo runs the trip backwards | `components/figures/shuttle` |
 
 Every figure responds to pointer and keyboard, pauses offscreen, goes still under `prefers-reduced-motion`, and works in light and dark.
 
@@ -25,7 +30,17 @@ pnpm dev        # http://localhost:3000
 pnpm build && pnpm start
 ```
 
-Next.js 16, React 19, TypeScript. The site has a gallery (`/`), a page per figure (`/figures/[slug]`) and the kit's docs (`/kit`).
+Next.js 16, React 19, TypeScript. The site has a gallery (`/`), a page per figure (`/figures/[slug]`), the kit's docs (`/kit`) and the agent skill (`/skill`).
+
+## Build figures with a model
+
+`skills/isomatric` is an agent skill that teaches a coding model to build figures to this standard: the workflow from the true numbers to the review, the kit's API, part recipes, motion and teardown rules, and a review checklist.
+
+```bash
+npx skills add NamanSharma2112/isomatric --skill isomatric
+```
+
+Or download it from `/skill` and unzip it into `~/.claude/skills/`. Every figure's card and page has a **Copy prompt** button: a ready brief that rebuilds that figure with the skill, or, with its first two lines changed, builds a new machine for your own idea. `/skill` also has a blank prompt for starting from scratch.
 
 ## Use a figure in your project
 
@@ -62,6 +77,8 @@ Dependencies: React 18+ and `lucide-react` (the teardown button's icons).
 | `components/iso/react/draw.tsx` | Server-safe components: `Plate`, `IsoFigure`, `Solid`, `Line`, `Dots`, `FaceText` |
 | `components/iso/react/live.tsx` | Client hooks: `useLoop`, `useInView`, `useReadout`, `follow`, `spring` |
 | `components/iso/react/teardown.tsx` | The exploded view: `useTeardown`, `TeardownToggle`, labels and trails |
+| `components/iso/react/tour.tsx` | `useTour`: a figure that tells a story event by event, pausing on hover and stepping on click or Enter |
+| `components/iso/parts.ts` | Parts for figures drawn as SVG strings: the surface plate on feet, an open tray, helpers bound to one projection |
 | `components/iso/iso.css` | Tones, fills and the plate, in light and dark |
 
 ### How a figure is built

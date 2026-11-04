@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FIGURES, figureBySlug } from "@/lib/figures";
+import { promptFor } from "@/lib/prompt";
+import { CopyPrompt } from "@/components/site/copy-prompt";
 
 export function generateStaticParams() {
   return FIGURES.map((f) => ({ slug: f.slug }));
@@ -21,6 +23,7 @@ export default async function FigurePage({ params }: { params: Promise<{ slug: s
   const prev = FIGURES[(i - 1 + FIGURES.length) % FIGURES.length]!;
   const next = FIGURES[(i + 1) % FIGURES.length]!;
   const dir = `components/figures/${f.folder}`;
+  const prompt = promptFor(f);
 
   return (
     <article className="doc">
@@ -29,6 +32,10 @@ export default async function FigurePage({ params }: { params: Promise<{ slug: s
       </p>
       <h1>{f.name}</h1>
       <p className="lede">{f.line}</p>
+      <div className="actions">
+        <CopyPrompt text={prompt} />
+        <Link href="/skill">Get the skill →</Link>
+      </div>
 
       <div className="stage">{f.render()}</div>
 
@@ -46,6 +53,21 @@ export default async function FigurePage({ params }: { params: Promise<{ slug: s
           </ul>
         </section>
       </div>
+
+      <section className="section">
+        <h2>Build it with a model</h2>
+        <p>
+          Paste this into a coding agent that has the <Link href="/skill">isomatric skill</Link>. It rebuilds this figure,
+          or, with the first two lines of the brief changed, a new machine for your own idea.
+        </p>
+        <details className="prompt">
+          <summary>See the prompt</summary>
+          <pre>
+            <code>{prompt}</code>
+          </pre>
+        </details>
+        <CopyPrompt text={prompt} />
+      </section>
 
       <section className="section">
         <h2>Use it</h2>
